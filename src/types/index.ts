@@ -3,7 +3,7 @@ export interface Product {
   title: string;
   price: number;
   description: string;
-  catrgory: string;
+  category: string;
   image: string;
   rating: {
     rate: number;
@@ -11,8 +11,7 @@ export interface Product {
   };
 }
 
-export interface ProductContextType {
-  products: Product[];
-  loading: boolean;
-  error: string | null;
+export interface CartItem {
+  product: Product;
+  quantity: number;
 }

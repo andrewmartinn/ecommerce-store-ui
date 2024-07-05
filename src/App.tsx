@@ -3,8 +3,8 @@ import Navbar from "./components/common/Navbar";
 import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
-import Sidebar from "./components/common/Sidebar";
 import Footer from "./components/common/Footer";
+import Sidebar from "./components/common/Sidebar";
 
 const App = () => {
   return (
