@@ -9,7 +9,7 @@ interface SidebarProductItemProps {
 
 const SidebarProductItem = ({ item }: SidebarProductItemProps) => {
   return (
-    <div className="flex">
+    <div className="flex gap-x-4 py-2 lg:px-6 border-b border-gray-200 ">
       <div className="w-full min-h-[150px] flex items-center gap-x-4">
         <div className="border border-[#e4e4e4] p-2">
           <img
