@@ -5,7 +5,7 @@ import CartProductItem from "../components/cart/CartProductItem";
 
 const Cart = observer(() => {
   return (
-    <div className="container mx-auto min-h-screen mt-10">
+    <div className="container mx-auto min-h-screen mt-[6rem]">
       <p className="text-xl lg:text-3xl uppercase">
         Cart{" "}
         <small className="text-[12px] text-gray-500">{`(${cartStore.getCartCount()} items)`}</small>

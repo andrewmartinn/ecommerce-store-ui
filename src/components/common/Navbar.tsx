@@ -1,16 +1,32 @@
 import { BsBag } from "react-icons/bs";
 import { observer } from "mobx-react-lite";
+import { useEffect, useState } from "react";
 import uiStore from "../../stores/uiStore";
 import { Link } from "react-router-dom";
 import cartStore from "../../stores/cartStore";
 import Logo from "../../assets/logo.svg";
+import clsx from "clsx";
 
 const Navbar = observer(() => {
+  const [isNavbarScrolled, setIsNavbarScrolled] = useState<boolean>(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      window.scrollY > 60
+        ? setIsNavbarScrolled(true)
+        : setIsNavbarScrolled(false);
+    });
+  }, []);
   return (
-    <header>
-      <div className="container mx-auto flex items-center justify-between h-full py-4 px-2">
+    <header
+      className={clsx("fixed w-full z-10 transition-all", {
+        "bg-white py-4 shadow-md": isNavbarScrolled,
+        "bg-none py-4": !isNavbarScrolled,
+      })}
+    >
+      <div className="container mx-auto flex items-center justify-between h-full">
         <Link to="/">
-          <img src={Logo} alt="logo" className="w-[40px]" />
+          <img src={Logo} alt="logo" className="w-[50px]" />
         </Link>
         <button
           className="flex relative"

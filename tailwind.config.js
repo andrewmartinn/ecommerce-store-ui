@@ -9,6 +9,10 @@ export default {
           lg: "0",
         },
       },
+      backgroundImage: {
+        "hero-bg": "url('./src/assets/hero-bg.jpg')",
+        "mobile-bg": "url('./src/assets/hero.jpg')",
+      },
     },
   },
   plugins: [],
