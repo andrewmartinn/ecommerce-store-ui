@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "embla-carousel-autoplay": "^8.1.6",
+    "embla-carousel-react": "^8.1.6",
     "mobx": "^6.13.0",
     "mobx-react-lite": "^4.0.7",
     "react": "^18.3.1",

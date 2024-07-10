@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ProductCard from "../components/home/product/ProductCard";
 import { Product } from "../types";
 import HeroSection from "../components/home/hero/HeroSection";
+import FeaturedProducts from "../components/home/featured/FeaturedProducts";
 
 const Home = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -36,6 +37,7 @@ const Home = () => {
       <HeroSection />
       <section className="py-16">
         <div className="container mx-auto">
+          <FeaturedProducts products={filteredProducts} />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-[30px] max-w-sm mx-auto md:max-w-none md:mx-auto">
             {filteredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
