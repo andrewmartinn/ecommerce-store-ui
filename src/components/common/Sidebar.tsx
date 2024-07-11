@@ -34,16 +34,18 @@ const Sidebar = observer(() => {
         ))}
       </div>
 
-      <div className="mt-5">
-        <Link to="/cart">
-          <button
-            className="bg-gray-200 text-zinc-900 p-2 w-full"
-            onClick={() => uiStore.toggleSidebar(uiStore.isSideBarActive)}
-          >
-            Procced to Checkout
-          </button>
-        </Link>
-      </div>
+      {cartStore.getCartCount() > 0 && (
+        <div className="mt-5">
+          <Link to="/cart">
+            <button
+              className="bg-gray-200 text-zinc-900 p-2 w-full"
+              onClick={() => uiStore.toggleSidebar(uiStore.isSideBarActive)}
+            >
+              Procced to Checkout
+            </button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 });

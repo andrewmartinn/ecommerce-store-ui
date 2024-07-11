@@ -1,10 +1,13 @@
+import { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/common/Navbar";
-import Home from "./pages/Home";
-import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import Footer from "./components/common/Footer";
 import Sidebar from "./components/common/Sidebar";
+import Loading from "./components/common/Loading";
+
+const Home = lazy(() => import("./pages/Home"));
+const ProductDetails = lazy(() => import("./pages/ProductDetails"));
 
 const App = () => {
   return (
@@ -12,8 +15,22 @@ const App = () => {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products/:id" element={<ProductDetails />} />
+          <Route
+            path="/"
+            element={
+              <Suspense fallback={<Loading />}>
+                <Home />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/products/:id"
+            element={
+              <Suspense fallback={<Loading />}>
+                <ProductDetails />
+              </Suspense>
+            }
+          />
           <Route path="/cart" element={<Cart />} />
         </Routes>
         <Sidebar />

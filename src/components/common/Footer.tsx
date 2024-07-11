@@ -6,7 +6,7 @@ import { FaYoutube, FaSnapchatSquare, FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-zinc-800 py-12">
+    <footer className=" bg-zinc-800 py-12">
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10 text-white font-medium">
         <div>
           <img src={Logo} alt="" />
