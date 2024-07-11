@@ -1,4 +1,14 @@
 # ecommerce-store-ui
+![ecommerce-home](https://github.com/andrewmartinn/ecommerce-store-ui/assets/152824513/c76d3d67-c6c1-48cd-8b64-6ea6bc597a6f)
+Home Page
+
+![ecommerce-details](https://github.com/andrewmartinn/ecommerce-store-ui/assets/152824513/1042dea3-fd3e-46c1-892c-9a332a851fdc)
+Product Details Page
+
+![ecommerce-cart](https://github.com/andrewmartinn/ecommerce-store-ui/assets/152824513/43faf3b2-26f5-475a-bcaf-2d461a9d7595)
+Cart Page
+
+## Project Description
 
 This project is a React eCommerce application that allows users to browse products, view detailed product information, and manage their shopping cart. Users can add and remove items from the cart and proceed through a simplified checkout process. The products data is provided by Fakestore API.
 
@@ -35,6 +45,7 @@ This project is a React eCommerce application that allows users to browse produc
 - Featured Products Slider: Learned to implement scrollable and responsive carousel which displays product items with navigation buttons.
 - MobX Integration: Integrated MobX for efficient state management to store, persist and modify changes to the cart and UI.
 - Discount Functionality: Added a discount code feature during the checkout process, allowing users to receive a percentage off their total purchase.
+- Checkout process: Implemented a simplified checkout process after the checkout is completed to show the order confirmation
 
 ## Project Setup
 
