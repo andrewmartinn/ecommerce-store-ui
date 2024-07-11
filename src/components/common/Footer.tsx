@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className=" bg-zinc-800 py-12">
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10 text-white font-medium">
         <div>
-          <img src={Logo} alt="" />
+          <img src={Logo} alt="logo" />
           <div className="flex gap-4 mt-4">
             <BsInstagram className="text-xl" />
             <FaSquareXTwitter className="text-xl" />

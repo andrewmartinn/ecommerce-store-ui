@@ -5,6 +5,7 @@ import Cart from "./pages/Cart";
 import Footer from "./components/common/Footer";
 import Sidebar from "./components/common/Sidebar";
 import Loading from "./components/common/Loading";
+import Checkout from "./pages/Checkout";
 
 const Home = lazy(() => import("./pages/Home"));
 const ProductDetails = lazy(() => import("./pages/ProductDetails"));
@@ -32,6 +33,7 @@ const App = () => {
             }
           />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
         <Sidebar />
         <Footer />

@@ -30,7 +30,7 @@ const ProductDetails = () => {
 
   if (error) {
     return (
-      <section className="h-screen flex justify-center items-center">
+      <section className="min-h-screen flex justify-center items-center">
         <p className="font-bold text-2xl">{error}</p>
       </section>
     );
@@ -38,11 +38,9 @@ const ProductDetails = () => {
 
   return (
     <section className="h-screen pt-32 pb-12 lg: py-32 flex items-center justify-center">
-      <div className="container mx-auto">
-        {/* Product Details */}
+      <div className="container mx-auto py-6">
         {product && (
           <div className="flex flex-col items-center lg:flex-row">
-            {/* Image */}
             <div className="flex flex-1 justify-center items-center mb-8 lg:mb-0">
               <img
                 src={product.image}
@@ -50,7 +48,6 @@ const ProductDetails = () => {
                 className="max-w-[150px] lg:max-w-sm"
               />
             </div>
-            {/* Text */}
             <div className="flex-1 text-center lg:text-left">
               <h1 className="text-2xl lg:text-[26px] font-medium mb-2 max-w-[450px] ">
                 {product.title}

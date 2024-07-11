@@ -17,6 +17,7 @@ const Navbar = observer(() => {
         : setIsNavbarScrolled(false);
     });
   }, []);
+
   return (
     <header
       className={clsx("fixed w-full z-10 transition-all", {

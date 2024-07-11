@@ -3,9 +3,7 @@ import { CartItem, Product } from "../types";
 
 class CartStore {
   cartItems: CartItem[] = [];
-  shippingCharge = 9.99;
-  salesTax = 5.0;
-  discountRate = 10.0;
+  discountPrice: number = 0;
 
   constructor() {
     makeAutoObservable(this);
@@ -55,7 +53,26 @@ class CartStore {
   }
 
   getTotalCartValue() {
-    return this.getProductsSubtotal() + this.shippingCharge + this.salesTax;
+    const shippingCharge = 9.99;
+    const salesTax = 5.0;
+    const totalCartAmount =
+      this.getProductsSubtotal() + shippingCharge + salesTax;
+    const discountTotal =
+      totalCartAmount - totalCartAmount * (this.discountPrice / 100);
+    return discountTotal;
+  }
+
+  applyDiscount(code: string) {
+    if (this.checkDiscountCodeValid(code)) {
+      this.discountPrice = 10;
+    } else {
+      this.discountPrice = 0;
+    }
+  }
+
+  checkDiscountCodeValid(code: string) {
+    if (code === "FIRST10" || code === "first10") return true;
+    return false;
   }
 
   getCartCount() {
@@ -66,17 +83,20 @@ class CartStore {
     return this.cartItems.find((item) => item.product.id === productId);
   }
 
+  clearCartItems() {
+    this.cartItems = [];
+    this.discountPrice = 0;
+    this.saveCartToLocalStorage();
+  }
+
   saveCartToLocalStorage() {
     localStorage.setItem("cart", JSON.stringify(this.cartItems));
   }
 
   loadCartFromLocalStorage() {
     const savedCartItems = localStorage.getItem("cart");
-    console.log(savedCartItems);
-
     if (savedCartItems) {
       this.cartItems = JSON.parse(savedCartItems);
-      console.log(savedCartItems);
     }
   }
 }

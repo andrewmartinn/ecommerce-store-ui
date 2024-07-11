@@ -45,7 +45,7 @@ const Home = () => {
 
   console.log(filteredProducts);
   return (
-    <div>
+    <>
       <HeroSection />
       <section className="py-16">
         <div className="container mx-auto">
@@ -60,7 +60,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 export default Home;
