@@ -9,6 +9,7 @@ class CartStore {
 
   constructor() {
     makeAutoObservable(this);
+    this.loadCartFromLocalStorage();
   }
 
   addProductToCart(product: Product) {
@@ -18,12 +19,14 @@ class CartStore {
     } else {
       this.cartItems.push({ product, quantity: 1 });
     }
+    this.saveCartToLocalStorage();
   }
 
   removeProductFromCart(productId: number) {
     this.cartItems = this.cartItems.filter(
       (item) => item.product.id !== productId
     );
+    this.saveCartToLocalStorage();
   }
 
   increaseProductQuantity(productId: number) {
@@ -32,6 +35,7 @@ class CartStore {
         item.quantity += 1;
       }
     });
+    this.saveCartToLocalStorage();
   }
 
   decreaseProductQuantity(productId: number) {
@@ -40,6 +44,7 @@ class CartStore {
         item.quantity -= 1;
       }
     });
+    this.saveCartToLocalStorage();
   }
 
   getProductsSubtotal() {
@@ -59,6 +64,20 @@ class CartStore {
 
   isProductInCart(productId: number) {
     return this.cartItems.find((item) => item.product.id === productId);
+  }
+
+  saveCartToLocalStorage() {
+    localStorage.setItem("cart", JSON.stringify(this.cartItems));
+  }
+
+  loadCartFromLocalStorage() {
+    const savedCartItems = localStorage.getItem("cart");
+    console.log(savedCartItems);
+
+    if (savedCartItems) {
+      this.cartItems = JSON.parse(savedCartItems);
+      console.log(savedCartItems);
+    }
   }
 }
 
